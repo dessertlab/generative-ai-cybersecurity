@@ -1,0 +1,10 @@
+Get a list of tweet given an handle
+Connect to downloadDB database and execute the command 'SELECT name, source, datetime(endTime/1000000,\'unixepoch\') FROM moz_downloads;'
+Given a src, tgt and ack send syn and ack packets to tgt with source port 513 and destination port 514
+Check if DNS requests return rcode 3 given a pkt
+Get the image from imgTag, download it into a file and return it
+Scan the subnet for the open port 445, then for each host if the port is open append it to a list and return it
+Given an url and a dir save in a dir every image found on the url
+Send the message ViolentPython\r\n on the host tgtHost on the port tgtPort
+Attempt to connect with user to the host with a keyfile and check if connection must be released
+Connect to the database skypeDB and execute the command "SELECT datetime(begin_timestamp,'unixepoch'),  identity FROM calls, conversations WHERE  calls.conv_dbid = conversations.id;"

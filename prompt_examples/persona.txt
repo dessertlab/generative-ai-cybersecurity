@@ -1,0 +1,8 @@
+Generate Python functions corresponding to the following NL descriptions.
+
+Act as an offensive security expert to generate the functions. Generate the functions, one per line. The functions should be single-line, i.e., if there are multi-line instructions, they should be separated by the \n character. Do not use empty lines to separate the outputs.
+
+1. [NL description]
+2. [NL description]
+...
+10. [NL description]

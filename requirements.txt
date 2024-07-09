@@ -1,0 +1,6 @@
+evaluate
+pylcs
+numpy
+rouge
+matplotlib
+numpy

@@ -1,0 +1,10 @@
+def get_tweets(handle): return api.user_timeline(screen_name=handle, count=10)
+def downloadDB_query(): return sqlite3.connect('downloadDB').execute('SELECT name, source, datetime(endTime/1000000,\'unixepoch\') FROM moz_downloads;')
+def send_syn_ack(src, tgt, ack): return sr1(IP(dst=tgt, src=src)/TCP(dport=514, sport=513, flags='SA', ack=ack))
+def check_dns_rcode3(pkt): return DNS in pkt and pkt[DNS].rcode == 3
+def download_image(imgTag): return urllib.request.urlretrieve(imgTag['src'], 'downloaded_image')
+def scan_subnet(subnet): return [host for host in subnet if sr1(IP(dst=host)/TCP(dport=445), timeout=1) and TCP in sr1(IP(dst=host)/TCP(dport=445), timeout=1) and sr1(IP(dst=host)/TCP(dport=445), timeout=1)[TCP].flags == 'SA']
+def save_images_from_url(url, dir): return [urllib.request.urlretrieve(img['src'], f"{dir}/{img['src'].split('/')[-1]}") for img in BeautifulSoup(requests.get(url).text, 'html.parser').find_all('img')]
+def send_message(tgtHost, tgtPort): return socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((tgtHost, tgtPort)).sendall(b"ViolentPython\r\n")
+def connect_and_check(user, host, keyfile): return paramiko.SSHClient().load_system_host_keys().connect(host, username=user, key_filename=keyfile) or paramiko.SSHClient().close()
+def skypeDB_query(): return sqlite3.connect('skypeDB').execute("SELECT datetime(begin_timestamp,'unixepoch'),  identity FROM calls, conversations WHERE  calls.conv_dbid = conversations.id;")
