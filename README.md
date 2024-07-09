@@ -84,6 +84,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     - Ensure the AI models generate the outputs line by line as required for the evaluation.
     - Save the model outputs in a file named `output.out` in the `results` folder.
     - Make sure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
+    - Make sure you have a file with 10 lines (no empty lines at the end of the file).
 
     Example prompt:
     ```plaintext
@@ -123,25 +124,14 @@ In this part, we will repeat the code generation process using the AI models, bu
 1. **Apply Prompt Engineering**:
     - Use the same NL descriptions stored in the `subset.in` file.
     - Modify your prompts according to the prompt engineering techniques learned during the talk.
-
-    Example prompt:
-    ```plaintext
-    Generate Python functions corresponding to the following NL descriptions.
-
-    Generate the functions, one per line. The functions should be single-line, i.e., if there are multi-line instructions, they should be separated by the \n character. Do not use empty lines to separate the outputs.
-
-    1. [NL description]
-    2. [NL description]
-    ...
-    10. [NL description]
-    ```
-
+  
     Examples of prompts can be found in the `prompt_examples` folder.
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
     - Save the model outputs in a file named `output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., persona, few-shot).
     - Ensure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
+    - Make sure you have a file with 10 lines (no empty lines at the end of the file).
 
 3. **Calculate Similarity Metrics**:
     - In the main directory, open the script `output_similarity_metrics.py`.
