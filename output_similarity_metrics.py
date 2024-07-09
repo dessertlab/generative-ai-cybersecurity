@@ -4,6 +4,7 @@ import os
 import numpy as np
 from rouge import Rouge
 import bleu_score
+import sys
 
 meteor = evaluate.load('meteor')
 bleu = evaluate.load('bleu')
@@ -71,33 +72,28 @@ def read_files(hyps_name, refs_name):
     return hyps, refs
 
 if __name__ == '__main__':
-    refs = []
-    hyps = []
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <hypothesis_file>")
+        sys.exit(1)
+    
+    hyp_file = sys.argv[1]
+    ref_file = "results/subset.out"  # Modify this as needed
 
-    files_hyps = ["results/output.out"]  # FILE NAME, change to the name of the model output file
-    #files_hyps = ["results/output_persona.out"]  # FILE NAME, change to the name of the model output file
-    #files_hyps = ["results/output_few_shot.out"]  # FILE NAME, change to the name of the model output file
-    files_refs = ["results/subset.out"]  # FILE NAME, change to the name of the file containing the correct snippets
+    print('\n', hyp_file, ref_file, '\n')
+    hyps, refs = read_files(hyp_file, ref_file)
 
-    for fh, fr in zip(files_hyps, files_refs):
-        print('\n', fh, fr, '\n')
-        hyps, refs = read_files(fh, fr)
+    ed_score = calc_ed(hyps, refs)
+    corpus_bleu_score = calc_corpus_BLEU(hyps, refs)
+    rouge_score = calc_rouge(hyps, refs)
+    meteor_score = calc_meteor(hyps, refs)
+    em_score = calc_EM(hyps, refs)
 
-        ed_score = calc_ed(hyps, refs)
-        corpus_bleu_score = calc_corpus_BLEU(hyps, refs)
-        rouge_score = calc_rouge(hyps, refs)
-        meteor_score = calc_meteor(hyps, refs)
-        em_score = calc_EM(hyps, refs)
+    output_filename = f"{os.path.splitext(os.path.basename(hyp_file))[0]}_metrics.txt"
+    output_filepath = os.path.join("results", output_filename)
 
-        # Save the scores to a text file
-        output_filename = "subset_output.txt"  # Change this
-        #output_filename = "subset_output_persona.txt"  # Change this
-        #output_filename = "subset_output_few_shot.txt"  # Change this
-        output_filepath = os.path.join("results", output_filename)
-
-        with open(output_filepath, 'w') as f:
-            f.write(ed_score + "\n")
-            f.write("\n".join(corpus_bleu_score) + "\n")
-            f.write("\n".join(rouge_score) + "\n")
-            f.write(meteor_score + "\n")
-            f.write(em_score + "\n")
+    with open(output_filepath, 'w') as f:
+        f.write(ed_score + "\n")
+        f.write("\n".join(corpus_bleu_score) + "\n")
+        f.write("\n".join(rouge_score) + "\n")
+        f.write(meteor_score + "\n")
+        f.write(em_score + "\n")

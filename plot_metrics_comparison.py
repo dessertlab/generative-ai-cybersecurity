@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
+import os
 
 def read_metrics(file_path):
     metrics = {}
@@ -48,11 +50,15 @@ def plot_metrics(metrics1, metrics2, labels1, labels2):
     plt.show()
 
 if __name__ == '__main__':
-    file1 = 'results/subset_output.txt'
-    #file2 = 'results/subset_output_persona.txt'
-    file2 = 'results/subset_output_few_shot.txt'
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <file2>")
+        sys.exit(1)
+    
+    file1 = 'results/output_metrics.txt'  # Fixed file
+    file2 = sys.argv[1]
     
     metrics1 = read_metrics(file1)
     metrics2 = read_metrics(file2)
     
-    plot_metrics(metrics1, metrics2, 'Subset Output', 'Subset Output Prompt Pattern')
+    plot_metrics(metrics1, metrics2, 'Output Direct Prompt', 'Output Prompt Eng. Pattern')
+

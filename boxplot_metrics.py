@@ -10,7 +10,7 @@ def read_values_from_file(file_path):
     return values
 
 # File path
-file_path = 'results/subset_output.txt'
+file_path = 'results/output_metrics.txt'
 
 # Read data from file
 values = read_values_from_file(file_path)
