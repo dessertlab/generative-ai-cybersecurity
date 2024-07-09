@@ -52,6 +52,11 @@ You are now ready to install dependencies and work within your virtual environme
 
 In the `Violent-Python-functions` folder, we have `.in` and `.out` files containing the NL (Natural Language) descriptions and the corresponding Python functions, respectively.
 
+The [Violent Python](https://github.com/dessertlab/violent-python
+) dataset is a manually curated dataset, where a sample contains a piece of Python code from an offensive software, and its corresponding description in natural language (plain English). We built the dataset using the popular book "Violent Python" by T.J. O'Connor, which presents several examples of offensive programs using the Python language. 
+
+We have included only the function-level descriptions, totaling 72 pairs of NL descriptions - Python functions.
+
 ### Extracting a Subset
 
 Now, we will extract a random subset of 10 samples from this dataset.
@@ -69,7 +74,7 @@ Now, we will extract a random subset of 10 samples from this dataset.
 
 ### Generating Outputs with AI Models
 
-Next, you will generate 10 outputs using generative AI models like [ChatGPT](https://chat.openai.com/) and [Claude Sonnet](https://www.anthropic.com/index/introducing-claude).
+Next, you will generate 10 outputs using generative AI models like [ChatGPT](https://chat.openai.com/) and [Claude Sonnet](https://claude.ai/).
 
 > [!CAUTION]
 > Pay attention to the structure of the code snippets. As you can see, the Python codes are all *single-line*. In fact, multi-line instructions are separated from each other with `\n`.
@@ -155,6 +160,17 @@ In this part, we will repeat the code generation process using the AI models, bu
     - The script reads the metric values from the files `subset_output.txt` and `subset_output_prompt_pattern.txt` and creates bar charts to visualize the differences between the metrics.
 
 Follow these steps to apply prompt engineering and evaluate its impact on the code generation quality.
+
+
+### Saved Outputs
+
+In the `saved_outputs` folder, you will find examples generated with ChatGPT-4. These examples illustrate how the model's outputs look like with different prompt engineering techniques applied.
+
+### Metric Comparison
+
+Below is an image showing the comparison of metrics between the outputs generated without prompt engineering and with few-shot prompt engineering:
+
+![Metric Comparison](results/direct_few_shot.png)
 
 
 
