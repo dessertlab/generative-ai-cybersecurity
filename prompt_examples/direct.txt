@@ -7,3 +7,4 @@
 
   Each function should be generated in a single line, for a total of 10 lines.
   Different instructions of the same function should be separated by the special character "\n".
+  Do not use empty lines to separate functions.

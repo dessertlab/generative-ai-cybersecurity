@@ -5,3 +5,5 @@ rouge
 nltk
 matplotlib
 numpy
+sys
+os

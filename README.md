@@ -83,7 +83,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     - Use the NL descriptions stored in the `subset.in` file to generate the 10 outputs using the AI models.
     - Ensure the AI models generate the outputs line by line as required for the evaluation.
     - Save the model outputs in a file named `output.out` in the `results` folder.
-    - Make sure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
+    - Make sure the model has generated the code in single-line format 
     - Make sure you have a file with 10 lines (no empty lines at the end of the file).
 
     Example prompt:
@@ -97,6 +97,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 
     Each function should be generated in a single line, for a total of 10 lines.
     Different instructions of the same function should be separated by the special character "\n".
+    Do not use empty lines to separate functions.
     ```
 
 4. **Install Dependencies**:
@@ -108,13 +109,14 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 5. **Calculate Similarity Metrics**:
     - In the main directory, run the script `output_similarity_metrics` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`subset.out`):
       ```bash
-      python output_similarity_metrics.py
+      python output_similarity_metrics.py hypothesis_file
       ```
+      where `hypothesis_file` is the `results\output.out` file.
 
-Follow these steps to ensure that your generated outputs are correctly formatted and evaluated against the ground truth in `subset.out`.
+Follow these steps to ensure that your generated outputs are correctly formatted and evaluated against the ground truth in `subset.out`. The metrics will be generated in the `results\output_metrics.txt` file.
 
 6. **Visualize Metric Variability**:
-    - Execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `subset_output.txt`:
+    - Execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results\output_metrics.txt`:
       ```bash
       python boxplot_metrics.py
       ```
@@ -140,25 +142,25 @@ In this part, we will repeat the code generation process using the AI models, bu
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
-    - Save the model outputs in a file named `output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., persona, few-shot).
-    - Ensure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
+    - Save the model outputs in a file named `output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., `output_persona.out`, `output_few_shot.out`).
+    - Make sure the model has generated the code in single-line format
     - Make sure you have a file with 10 lines (no empty lines at the end of the file).
 
 3. **Calculate Similarity Metrics**:
-    - In the main directory, open the script `output_similarity_metrics.py`.
-    - Update the `file_hyps` variable to `output_prompt_pattern.out`.
-    - Update the `output_filename` variable from `subset_output.txt` to `subset_output_prompt_pattern.txt`.
-    - Run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
+    -  Run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
       ```bash
-      python output_similarity_metrics.py
+      python output_similarity_metrics.py hypothesis_file
       ```
+      where `hypothesis_file` is the file generated with the a prompt pattern (e.g., `results\output_few_shot.out` file).
+    - The metrics will be generated in the `results\output_prompt_engineering_metrics.txt` file (e.g., `results\output_few_shot_metrics.txt` file). 
 
 4. **Compare Results**:
     - Execute the script `plot_metrics_comparison.py` to compare the results:
       ```bash
-      python plot_metrics_comparison.py
+      python plot_metrics_comparison.py file2
       ```
-    - The script reads the metric values from the files `subset_output.txt` and `subset_output_prompt_pattern.txt` and creates bar charts to visualize the differences between the metrics.
+      where `file2` is `results\output_prompt_engineering_metrics.txt` file.
+    - The script will create bar charts to visualize the differences between the metrics of the different outputs.
 
 Follow these steps to apply prompt engineering and evaluate its impact on the code generation quality.
 
