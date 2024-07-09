@@ -88,14 +88,15 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 
     Example prompt:
     ```plaintext
-    Generate Python functions corresponding to the following NL descriptions.
-
-    Generate the functions, one per line. The functions should be single-line, i.e., if there are multi-line instructions, they should be separated by the \n character. Do not use empty lines to separate the outputs. 
+    Generate Python 10 functions starting from the following 10 natural language (NL) descriptions:
 
     1. [NL description]
     2. [NL description]
     ...
     10. [NL description]
+
+    Each function should be generated in a single line, for a total of 10 lines.
+    Different instructions of the same function should be separated by the special character "\n".
     ```
 
 4. **Install Dependencies**:
