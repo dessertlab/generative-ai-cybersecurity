@@ -90,7 +90,8 @@ if __name__ == '__main__':
         em_score = calc_EM(hyps, refs)
 
         # Save the scores to a text file
-        output_filename = "subset_output_persona.txt"  # Change this
+        output_filename = "subset_output.txt"  # Change this
+        #output_filename = "subset_output_persona.txt"  # Change this
         #output_filename = "subset_output_few_shot.txt"  # Change this
         output_filepath = os.path.join("results", output_filename)
 
