@@ -74,7 +74,8 @@ if __name__ == '__main__':
     refs = []
     hyps = []
 
-    files_hyps = ["results/output_persona.out"]  # FILE NAME, change to the name of the model output file
+    files_hyps = ["results/output.out"]  # FILE NAME, change to the name of the model output file
+    #files_hyps = ["results/output_persona.out"]  # FILE NAME, change to the name of the model output file
     #files_hyps = ["results/output_few_shot.out"]  # FILE NAME, change to the name of the model output file
     files_refs = ["results/subset.out"]  # FILE NAME, change to the name of the file containing the correct snippets
 
