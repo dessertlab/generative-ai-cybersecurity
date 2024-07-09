@@ -9,7 +9,7 @@ Ensure you have Python installed on your system. If not, you can use a virtual e
 ### Anaconda Installation
 
 1. **Install Anaconda3**:
-    - Ensure you have Anaconda3 installed. If not, you can download the installer from [here](https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh).
+    - Ensure you have Anaconda3 installed. If not, you can download the installer from [here](https://repo.anaconda.com/archive).
     - Use the `wget` command to download the installer:
       ```bash
       wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
