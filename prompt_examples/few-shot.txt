@@ -1,12 +1,13 @@
-Generate Python functions corresponding to the following NL descriptions.
-
-Generate the functions, one per line. The functions should be single-line, i.e., if there are multi-line instructions, they should be separated by the \n character. Do not use empty lines to separate the outputs. 
-
-Here is an example of the format:
-“Scan the tgtHost on tgtPort with nmap and calculate the state” is the natural language description.
-"def nmapScan(tgtHost,tgtPort): \n nmScan = nmap.PortScanner() \n nmScan.scan(tgtHost,tgtPort) \n state=nmScan[tgtHost]['tcp'][int(tgtPort)]['state']\n" is the Python code.
+Generate Python 10 functions starting from the following 10 natural language (NL) descriptions:
 
 1. [NL description]
 2. [NL description]
 ...
 10. [NL description]
+
+Each function should be generated in a single line, for a total of 10 lines.
+Different instructions of the same function should be separated by the special character "\n".
+
+Here is an example of the format:
+“Scan the tgtHost on tgtPort with nmap and calculate the state” is the natural language description.
+"def nmapScan(tgtHost,tgtPort): \n nmScan = nmap.PortScanner() \n nmScan.scan(tgtHost,tgtPort) \n state=nmScan[tgtHost]['tcp'][int(tgtPort)]['state']\n" is the Python code.
