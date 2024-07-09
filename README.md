@@ -113,6 +113,16 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 
 Follow these steps to ensure that your generated outputs are correctly formatted and evaluated against the ground truth in `subset.out`.
 
+6. **Visualize Metric Variability**:
+    - Execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `subset_output.txt`:
+      ```bash
+      python boxplot_metrics.py
+      ```
+
+Below is an image showing the variability of the output similarity metrics with a boxplot:
+
+![Metric Comparison](saved_output/boxplot.png)
+
 
 ## Part 2: Prompt Engineering
 
