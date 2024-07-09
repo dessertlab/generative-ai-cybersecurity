@@ -77,7 +77,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 3. **Generate Outputs**:
     - Use the NL descriptions stored in the `subset.in` file to generate the 10 outputs using the AI models.
     - Ensure the AI models generate the outputs line by line as required for the evaluation.
-    - Save the model outputs in a file named `python_output.out` in the `results` folder.
+    - Save the model outputs in a file named `output.out` in the `results` folder.
     - Make sure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
 
     Example prompt:
@@ -99,7 +99,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
       ```
 
 5. **Calculate Similarity Metrics**:
-    - In the main directory, run the script `output_similarity_metrics` to calculate the output similarity metrics between the model predictions (`python_output.out`) and the ground truth reference (`subset.out`):
+    - In the main directory, run the script `output_similarity_metrics` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`subset.out`):
       ```bash
       python output_similarity_metrics.py
       ```
@@ -135,14 +135,14 @@ In this part, we will repeat the code generation process using the AI models, bu
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
-    - Save the model outputs in a file named `python_output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., persona, few-shot).
+    - Save the model outputs in a file named `output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., persona, few-shot).
     - Ensure the model has generated the code in single-line format (with multi-line instructions separated by `\n`).
 
 3. **Calculate Similarity Metrics**:
     - In the main directory, open the script `output_similarity_metrics.py`.
-    - Update the `file_hypes` variable to `python_output_prompt_pattern.out`.
+    - Update the `file_hypes` variable to `output_prompt_pattern.out`.
     - Update the `output_filename` variable from `subset_output.txt` to `subset_output_prompt_pattern.txt`.
-    - Run the script to calculate the output similarity metrics between the model predictions (`python_output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
+    - Run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
       ```bash
       python output_similarity_metrics.py
       ```
