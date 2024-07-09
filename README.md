@@ -170,7 +170,7 @@ In the `saved_outputs` folder, you will find examples generated with ChatGPT-4. 
 
 Below is an image showing the comparison of metrics between the outputs generated without prompt engineering and with few-shot prompt engineering:
 
-![Metric Comparison](results/direct_few_shot.png)
+![Metric Comparison](saved_output/direct_few_shot.png)
 
 
 
