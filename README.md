@@ -145,7 +145,7 @@ In this part, we will repeat the code generation process using the AI models, bu
 
 3. **Calculate Similarity Metrics**:
     - In the main directory, open the script `output_similarity_metrics.py`.
-    - Update the `file_hypes` variable to `output_prompt_pattern.out`.
+    - Update the `file_hyps` variable to `output_prompt_pattern.out`.
     - Update the `output_filename` variable from `subset_output.txt` to `subset_output_prompt_pattern.txt`.
     - Run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
       ```bash
