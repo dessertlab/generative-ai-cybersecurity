@@ -68,19 +68,19 @@ Now, we will extract a random subset of 10 samples from this dataset.
       ```
 
 2. **Results**:
-    - The script will create a `results` folder containing `subset.in` and `subset.out` files.
-    - The `subset.in` file contains the 10 randomly extracted NL descriptions.
-    - The `subset.out` file contains the corresponding 10 Python functions and serves as our ground truth for evaluation.
+    - The script will create the `scripts/results` subfolder containing `reference.in` and `reference.out` files.
+    - The `reference.in` file contains the 10 randomly extracted NL descriptions.
+    - The `reference.out` file contains the corresponding 10 Python functions and serves as our ground truth for evaluation.
 
 ### Generating Outputs with AI Models
 
-Next, you will generate 10 outputs using generative AI models like [ChatGPT](https://chat.openai.com/) and [Claude Sonnet](https://claude.ai/).
+Next, you will generate 10 outputs using generative AI models like [ChatGPT](https://chat.openai.com/) or [Claude Sonnet](https://claude.ai/).
 
 > [!CAUTION]
 > Pay attention to the structure of the code snippets. As you can see, the Python codes are all *single-line*. In fact, multi-line instructions are separated from each other with `\n`.
 
 3. **Generate Outputs**:
-    - Use the NL descriptions stored in the `subset.in` file to generate the 10 outputs using the AI models.
+    - Use the NL descriptions stored in the `reference.in` file to generate the 10 outputs using the AI models.
     - Ensure the AI models generate the outputs line by line as required for the evaluation.
     - Save the model outputs in a file named `output.out` in the `results` folder.
     - Make sure the model has generated the code in single-line format 
@@ -101,22 +101,22 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     ```
 
 4. **Install Dependencies**:
-    - Before running the script to calculate similarity metrics, install the required dependencies using:
+    - In the `scripts` folder, install the required dependencies using:
       ```bash
       pip install -r requirements.txt --user
       ```
 
 5. **Calculate Similarity Metrics**:
-    - In the main directory, run the script `output_similarity_metrics` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`subset.out`):
+    - In the `scripts` folder, run the python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`reference.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
-      where `hypothesis_file` is the `results\output.out` file.
+      where `hypothesis_file` is the `results\reference.out` file.
 
-Follow these steps to ensure that your generated outputs are correctly formatted and evaluated against the ground truth in `subset.out`. The metrics will be generated in the `results\output_metrics.txt` file.
+The metrics will be generated in the `results\output_metrics.txt` file.
 
 6. **Visualize Metric Variability**:
-    - Execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results\output_metrics.txt`:
+    - In the `scripts` folder, execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results\output_metrics.txt`:
       ```bash
       python boxplot_metrics.py
       ```
@@ -135,31 +135,31 @@ In this part, we will repeat the code generation process using the AI models, bu
 ### Steps
 
 1. **Apply Prompt Engineering**:
-    - Use the same NL descriptions stored in the `subset.in` file.
+    - Use the same NL descriptions stored in the `reference.in` file.
     - Modify your prompts according to the prompt engineering techniques learned during the talk.
   
     Examples of prompts can be found in the `prompt_examples` folder.
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
-    - Save the model outputs in a file named `output_prompt_pattern.out` in the `results` folder, where `prompt_pattern` is the name of the pattern used (e.g., `output_persona.out`, `output_few_shot.out`).
-    - Make sure the model has generated the code in single-line format
-    - Make sure you have a file with 10 lines (no empty lines at the end of the file).
+    - Save the model outputs in a file named `output_prompt_pattern.out` in the `scripts/results` folder, where `prompt_pattern` is an identifier you want to use to specify the adopted pattern (e.g., `output_persona.out`, `output_few_shot.out`).
+    - Make sure (again) the model has generated the code in single-line format.
+    - Make sure (again) you have a file with 10 lines (no empty lines at the end of the file).
 
 3. **Calculate Similarity Metrics**:
-    -  Run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
+    -  In the `scripts` folder, run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
       where `hypothesis_file` is the file generated with the a prompt pattern (e.g., `results\output_few_shot.out` file).
-    - The metrics will be generated in the `results\output_prompt_engineering_metrics.txt` file (e.g., `results\output_few_shot_metrics.txt` file). 
+    - The metrics will be generated in the `scripts/results/output_prompt_engineering_metrics.txt` file (e.g., `scripts/results/output_few_shot_metrics.txt` file). 
 
 4. **Compare Results**:
-    - Execute the script `plot_metrics_comparison.py` to compare the results:
+    - In the `scripts` folder, execute the script `plot_metrics_comparison.py` to compare the results:
       ```bash
       python plot_metrics_comparison.py file2
       ```
-      where `file2` is `results\output_prompt_engineering_metrics.txt` file.
+      where `file2` is `scripts/results/output_prompt_engineering_metrics.txt` file.
     - The script will create bar charts to visualize the differences between the metrics of the different outputs.
 
 Follow these steps to apply prompt engineering and evaluate its impact on the code generation quality.
