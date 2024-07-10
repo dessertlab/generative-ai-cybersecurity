@@ -76,9 +76,9 @@ if __name__ == '__main__':
         print("Usage: python script.py <hypothesis_file>")
         sys.exit(1)
     
+    ref_file = "results/reference.out" 
     hyp_file = sys.argv[1]
-    ref_file = "results/subset.out"  # Modify this as needed
-
+    
     print('\n', hyp_file, ref_file, '\n')
     hyps, refs = read_files(hyp_file, ref_file)
 

@@ -1,14 +1,14 @@
 import random
 import os
 
-input_folder = "Violent-Python-functions"
-output_folder = "results"
+input_folder = "dataset"
+output_folder = "1-code_correctness/results"
 
 input_file_in = os.path.join(input_folder, "violent_python.in")
 input_file_out = os.path.join(input_folder, "violent_python.out")
 
-output_file_in = os.path.join(output_folder, "subset.in")
-output_file_out = os.path.join(output_folder, "subset.out")
+output_file_in = os.path.join(output_folder, "reference.in")
+output_file_out = os.path.join(output_folder, "reference.out")
 
 # Ensure the output folder exists
 os.makedirs(output_folder, exist_ok=True)

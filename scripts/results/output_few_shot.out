@@ -1,0 +1,10 @@
+def getTweets(handle): \n return api.user_timeline(screen_name=handle)
+def downloadDBExecute(): \n conn = sqlite3.connect('downloadDB') \n cur = conn.cursor() \n cur.execute("SELECT name, source, datetime(endTime/1000000,'unixepoch') FROM moz_downloads;") \n return cur.fetchall()
+def sendSynAck(src, tgt, ack): \n send(IP(src=src, dst=tgt)/TCP(sport=513, dport=514, flags='SA', ack=ack))
+def checkDNSRcode3(pkt): \n return pkt.haslayer(DNS) and pkt.getlayer(DNS).rcode == 3
+def downloadImage(imgTag, filename): \n img_url = imgTag['src'] \n urllib.request.urlretrieve(img_url, filename) \n return filename
+def scanSubnetForPort445(subnet): \n open_hosts = [] \n nm = nmap.PortScanner() \n nm.scan(subnet, '445') \n for host in nm.all_hosts(): \n if nm[host]['tcp'][445]['state'] == 'open': \n open_hosts.append(host) \n return open_hosts
+def saveImagesFromURL(url, dir): \n soup = BeautifulSoup(requests.get(url).content, 'html.parser') \n images = soup.find_all('img') \n for img in images: \n img_url = img['src'] \n img_data = requests.get(img_url).content \n with open(os.path.join(dir, os.path.basename(img_url)), 'wb') as f: \n f.write(img_data)
+def sendMessage(tgtHost, tgtPort): \n s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) \n s.connect((tgtHost, tgtPort)) \n s.sendall(b'ViolentPython\r\n') \n s.close()
+def attemptConnect(user, host, keyfile): \n ssh = paramiko.SSHClient() \n ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy()) \n ssh.connect(host, username=user, key_filename=keyfile) \n ssh.close()
+def skypeDBExecute(): \n conn = sqlite3.connect('skypeDB') \n cur = conn.cursor() \n cur.execute("SELECT datetime(begin_timestamp,'unixepoch'), identity FROM calls, conversations WHERE calls.conv_dbid = conversations.id;") \n return cur.fetchall()
