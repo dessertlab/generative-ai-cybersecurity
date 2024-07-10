@@ -162,20 +162,15 @@ In this part, we will repeat the code generation process using the AI models, bu
       where `file2` is `scripts/results/output_prompt_engineering_metrics.txt` file.
     - The script will create bar charts to visualize the differences between the metrics of the different outputs.
 
-Follow these steps to apply prompt engineering and evaluate its impact on the code generation quality.
-
-
-### Saved Outputs
-
-In the `saved_outputs` folder, you will find examples generated with ChatGPT-4. These examples illustrate how the model's outputs look like with different prompt engineering techniques applied.
-
-### Metric Comparison
-
 Below is an image showing the comparison of metrics between the outputs generated without prompt engineering and with few-shot prompt engineering:
 
 ![Metric Comparison](saved_output/direct_few_shot.png)
 
+Follow these steps to apply prompt engineering and evaluate its impact on the code generation quality.
 
+## Saved Outputs
+
+In the `saved_outputs` folder, you will find examples generated with ChatGPT-4. These examples illustrate how the model's outputs look like with different prompt engineering techniques applied.
 
 ## Credits
 
