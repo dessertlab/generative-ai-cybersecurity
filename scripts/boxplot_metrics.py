@@ -24,5 +24,8 @@ plt.boxplot(values, vert=True, patch_artist=True)
 plt.title('Boxplot of Values')
 plt.xlabel('Values')
 
+# Remove x-ticks
+plt.xticks([])
+
 # Show the plot
 plt.show()
