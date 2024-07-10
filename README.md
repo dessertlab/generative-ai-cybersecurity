@@ -111,12 +111,12 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
-      where `hypothesis_file` is the `results\reference.out` file.
+      where `hypothesis_file` is the `results/reference.out` file.
 
-The metrics will be generated in the `results\output_metrics.txt` file.
+The metrics will be generated in the `results/output_metrics.txt` file.
 
 6. **Visualize Metric Variability**:
-    - In the `scripts` folder, execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results\output_metrics.txt`:
+    - In the `scripts` folder, execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results/output_metrics.txt`:
       ```bash
       python boxplot_metrics.py
       ```
@@ -151,7 +151,7 @@ In this part, we will repeat the code generation process using the AI models, bu
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
-      where `hypothesis_file` is the file generated with the a prompt pattern (e.g., `results\output_few_shot.out` file).
+      where `hypothesis_file` is the file generated with the a prompt pattern (e.g., `results/output_few_shot.out` file).
     - The metrics will be generated in the `scripts/results/output_prompt_engineering_metrics.txt` file (e.g., `scripts/results/output_few_shot_metrics.txt` file). 
 
 4. **Compare Results**:
