@@ -1,0 +1,7 @@
+evaluate
+pylcs
+numpy
+rouge
+nltk
+matplotlib
+numpy
