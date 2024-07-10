@@ -59,15 +59,18 @@ We have included only the function-level descriptions, totaling 72 pairs of NL d
 
 ### Extracting a Subset
 
-Now, we will extract a random subset of 10 samples from this dataset.
-
-1. **Run the script**:
+1. **Install Dependencies**:
+    - In the main directory, install the required dependencies using:
+      ```bash
+      pip install -r requirements.txt --user
+      ```
+      
+2. **Subset Extraction**:
+    - We will extract a random subset of 10 samples from the Violent-Python dataset.
     - In the main directory, run the `create_subset.py` script with the following command:
       ```bash
       python create_subset.py
       ```
-
-2. **Results**:
     - The script will create the `scripts/results` subfolder containing `reference.in` and `reference.out` files.
     - The `reference.in` file contains the 10 randomly extracted NL descriptions.
     - The `reference.out` file contains the corresponding 10 Python functions and serves as our ground truth for evaluation.
@@ -100,13 +103,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     Do not use empty lines to separate functions.
     ```
 
-4. **Install Dependencies**:
-    - In the `scripts` folder, install the required dependencies using:
-      ```bash
-      pip install -r requirements.txt --user
-      ```
-
-5. **Calculate Similarity Metrics**:
+4. **Calculate Output Similarity Metrics**:
     - In the `scripts` folder, run the python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`reference.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
@@ -115,7 +112,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
 
 The metrics will be generated in the `results/output_metrics.txt` file.
 
-6. **Visualize Metric Variability**:
+5. **Visualize Metric Variability**:
     - In the `scripts` folder, execute the script `boxplot_metrics.py` to visualize the variability of the metrics saved in the file `results/output_metrics.txt`:
       ```bash
       python boxplot_metrics.py
@@ -146,7 +143,7 @@ In this part, we will repeat the code generation process using the AI models, bu
     - Make sure (again) the model has generated the code in single-line format.
     - Make sure (again) you have a file with 10 lines (no empty lines at the end of the file).
 
-3. **Calculate Similarity Metrics**:
+3. **Calculate Output Similarity Metrics**:
     -  In the `scripts` folder, run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
