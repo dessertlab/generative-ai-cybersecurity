@@ -2,7 +2,7 @@ import random
 import os
 
 input_folder = "dataset"
-output_folder = "1-code_correctness/results"
+output_folder = "scripts/results"
 
 input_file_in = os.path.join(input_folder, "violent_python.in")
 input_file_out = os.path.join(input_folder, "violent_python.out")
