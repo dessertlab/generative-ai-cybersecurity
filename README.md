@@ -12,15 +12,15 @@ Ensure you have Python installed on your system. If not, you can use a virtual e
     - Ensure you have Anaconda3 installed. If not, you can download the installer from [here](https://repo.anaconda.com/archive).
     - Use the `wget` command to download the installer:
       ```bash
-      wget https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh
+      wget https://repo.anaconda.com/archive/Anaconda3-version-OS.sh
       ```
     - Make the installer executable:
       ```bash
-      chmod +x Anaconda3-2021.05-Linux-x86_64.sh
+      chmod +x Anaconda3-version-OS.sh
       ```
     - Run the installer:
       ```bash
-      bash Anaconda3-2021.05-Linux-x86_64.sh
+      bash Anaconda3-version-OS.sh
       ```
     - You may need to add the Anaconda directory to the PATH environment variable. For example, add this line to your `bashrc` file:
       ```bash
