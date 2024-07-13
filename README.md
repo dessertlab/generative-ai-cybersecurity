@@ -108,7 +108,7 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
-      where `hypothesis_file` is the `results/reference.out` file.
+      where `hypothesis_file` is the `results/output.out` file.
 
 The metrics will be generated in the `results/output_metrics.txt` file.
 
