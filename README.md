@@ -146,7 +146,7 @@ In this part, we will repeat the code generation process using the AI models, bu
 
 1. **Apply Prompt Engineering**:
     - Use the same NL descriptions stored in the `reference.in` file.
-    - Modify your prompts according to the prompt engineering techniques learned during the talk.
+    - Modify your prompts according to prompt-engineering techniques learned during the talk.
   
     Examples of prompts can be found in the `prompt_examples` folder.
 
@@ -161,7 +161,7 @@ In this part, we will repeat the code generation process using the AI models, bu
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
-      where `hypothesis_file` is the file generated with the a prompt pattern (e.g., `results/output_few_shot.out` file).
+      where `hypothesis_file` is the file generated with a prompt pattern (e.g., `results/output_few_shot.out` file).
     - The metrics will be generated in the `scripts/results/output_prompt_engineering_metrics.txt` file (e.g., `scripts/results/output_few_shot_metrics.txt` file). 
 
 4. **Compare Results**:
@@ -180,7 +180,7 @@ Follow these steps to apply prompt engineering and evaluate its impact on the co
 
 ## Saved Outputs
 
-In the `saved_outputs` folder, you will find examples generated with ChatGPT-4. These examples illustrate how the model's outputs look like with different prompt engineering techniques applied.
+In the `saved_outputs` folder, you will find examples generated with ChatGPT-4o. These examples illustrate how the model's outputs look like with different prompt engineering techniques applied.
 
 ## Credits
 
