@@ -122,6 +122,19 @@ Below is an image showing the variability of the output similarity metrics with 
 
 ![Metric Comparison](saved_output/boxplot.png)
 
+6. **Compare different models**
+   - Try to generate the output with a different model and save the model's prediction in the `results/output2.out` file.
+   - Run again the python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output2.out`) and the ground truth reference (`reference.out`):
+      ```bash
+      python output_similarity_metrics.py results/output2.out
+      ```
+   - Run the script `compare_models.py` to show the comparison of two models performance across two metrics
+     ```bash
+      python compare_models.py
+      ```
+Below is an example of the output:
+
+![Metric Comparison](saved_output/models_comparison.png)
 
 ## Part 2: Prompt Engineering
 
