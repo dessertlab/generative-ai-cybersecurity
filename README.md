@@ -148,7 +148,7 @@ In this part, we will repeat the code generation process using the AI models, bu
     - Use the same NL descriptions stored in the `reference.in` file.
     - Modify your prompts according to prompt-engineering techniques learned during the talk.
   
-    Examples of prompts can be found in the `prompt_examples` folder.
+    Examples of prompts can be found in the `scripts/prompt_examples` folder.
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
@@ -157,7 +157,7 @@ In this part, we will repeat the code generation process using the AI models, bu
     - Make sure (again) you have a file with 10 lines (no empty lines at the end of the file).
 
 3. **Calculate Output Similarity Metrics**:
-    -  In the `scripts` folder, run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`subset.out`):
+    -  In the `scripts` folder, run the script to calculate the output similarity metrics between the model predictions (`output_prompt_pattern.out`) and the ground truth reference (`reference.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
@@ -167,9 +167,9 @@ In this part, we will repeat the code generation process using the AI models, bu
 4. **Compare Results**:
     - In the `scripts` folder, execute the script `plot_metrics_comparison.py` to compare the results:
       ```bash
-      python plot_metrics_comparison.py file2
+      python plot_metrics_comparison.py file_metrics
       ```
-      where `file2` is `scripts/results/output_prompt_engineering_metrics.txt` file.
+      where `file_metrics` is `scripts/results/output_prompt_engineering_metrics.txt` file.
     - The script will create bar charts to visualize the differences between the metrics of the different outputs.
 
 Below is an image showing the comparison of metrics between the outputs generated without prompt engineering and with few-shot prompt engineering:
