@@ -103,6 +103,9 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     Do not use empty lines to separate functions.
     ```
 
+   > A ready-to-use prompt example based on the genereted `reference.in` file is available in the same folder as `reference.in` and `reference.out` (`scripts/results` subfolder).
+
+
 4. **Calculate Output Similarity Metrics**:
     - In the `scripts` folder, run the python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`reference.out`):
       ```bash
