@@ -1,6 +1,8 @@
 # Generative AI in Cybersecurity: Generating Offensive Code from Natural Language
 
-This repository contains the materials and scripts for the talk titled **"Generative AI in Cybersecurity: Generating Offensive Code from Natural Language"** by Pietro Liguori, University of Naples Federico II, DESSERT group. The talk is part of **ARTISAN 2024: Summer School on the role and effects of ARTificial Intelligence in Secure ApplicatioNs**.
+This repository contains the materials and scripts for the talk titled **"Generative AI in Cybersecurity: Generating Offensive Code from Natural Language"** by Pietro Liguori, University of Naples Federico II, DESSERT group. 
+
+The talk is part of **55th Annual IEEE/IFIP International Conference on Dependable Systems and Networks (DSN 2025) - Tutorial Session** and of the **ARTISAN 2024: Summer School on the role and effects of ARTificial Intelligence in Secure ApplicatioNs**.
 
 ## Python Setup
 
