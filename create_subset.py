@@ -3,16 +3,47 @@ import os
 
 input_folder = "dataset"
 output_folder = "scripts/results"
+prompt_folder = "scripts/prompts"
 
 input_file_in = os.path.join(input_folder, "violent_python.in")
 input_file_out = os.path.join(input_folder, "violent_python.out")
 
 output_file_in = os.path.join(output_folder, "reference.in")
 output_file_out = os.path.join(output_folder, "reference.out")
-prompt_file_example = os.path.join(output_folder, "prompt_example.txt")
 
-# Ensure the output folder exists
+# Prompt Files
+direct_prompt_file_example = os.path.join(prompt_folder, "direct_prompt_example.txt")
+persona_prompt_file_example = os.path.join(prompt_folder, "persona_prompt_example.txt")
+fs_prompt_file_example = os.path.join(prompt_folder, "fs_prompt_example.txt")
+
+# Prompt Messages
+direct_prompt = (
+        "\nEach function should be generated in a single line, for a total of 10 lines.\n"
+        "Different instructions of the same function should be separated by the special character \"\\n\".\n"
+        "Do not use empty lines to separate functions.\n"
+    )
+
+persona_prompt = (
+        "\nAct as an offensive security expert to generate the functions.\n" 
+        "Each function should be generated in a single line, for a total of 10 lines.\n"
+        "Different instructions of the same function should be separated by the special character \"\\n\".\n"
+        "Do not use empty lines to separate functions.\n"
+    )
+
+fs_prompt = (
+    "\nEach function should be generated in a single line, for a total of 10 lines.\n"
+    "Different instructions of the same function should be separated by the special character \"\\n\".\n"
+    "Do not use empty lines to separate functions.\n\n"
+    "Here is an example of the format:\n"
+    "“Scan the tgtHost on tgtPort with nmap and calculate the state” is the natural language description.\n"
+    "\"def nmapScan(tgtHost,tgtPort): \\n nmScan = nmap.PortScanner() \\n nmScan.scan(tgtHost,tgtPort) \\n state=nmScan[tgtHost]['tcp'][int(tgtPort)]['state']\\n\" is the Python code.\n"
+)
+
+
+
+# Ensure the output and prompt folders exist
 os.makedirs(output_folder, exist_ok=True)
+os.makedirs(prompt_folder, exist_ok=True)
 
 with open(input_file_in, 'r') as fin:
     dataset_in = fin.readlines()
@@ -34,7 +65,9 @@ with open(output_file_out, 'w') as f_out:
     f_out.writelines(subset_out)
 
 
-def generate_prompt(reference_path=output_file_in):
+# generate files for prompt templates
+
+def generate_prompt(reference_path=output_file_in, message=""):
     """
     Reads the reference.in file and generates a formatted prompt
     to use with generative AI models.
@@ -50,16 +83,21 @@ def generate_prompt(reference_path=output_file_in):
     for i, desc in enumerate(descriptions, 1):
         prompt += f"{i}. {desc}\n"
 
-    prompt += (
-        "\nEach function should be generated in a single line, for a total of 10 lines.\n"
-        "Different instructions of the same function should be separated by the special character \"\\n\".\n"
-        "Do not use empty lines to separate functions.\n"
-    )
+    prompt += message
 
     return prompt
 
-prompt = generate_prompt(output_file_in)
-with open(prompt_file_example, "w") as f:
-    f.write(prompt)
 
-print(prompt)
+direct_prompt = generate_prompt(output_file_in, direct_prompt)
+with open(direct_prompt_file_example, "w") as f:
+    f.write(direct_prompt)
+
+print(direct_prompt)
+
+persona_prompt = generate_prompt(output_file_in, persona_prompt)
+with open(persona_prompt_file_example, "w") as f:
+    f.write(persona_prompt)
+
+fs_prompt = generate_prompt(output_file_in, fs_prompt)
+with open(fs_prompt_file_example, "w") as f:
+    f.write(fs_prompt)
