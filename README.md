@@ -103,11 +103,11 @@ Next, you will generate 10 outputs using generative AI models like [ChatGPT](htt
     Do not use empty lines to separate functions.
     ```
 
-   > A ready-to-use prompt example based on the genereted `reference.in` file is available in the same folder as `reference.in` and `reference.out` (`scripts/results` subfolder).
+   > You can use the `direct_prompt_example.txt` file from the `scripts/prompts` subfolder, which is a ready-to-use prompt example based on the generated `reference.in` file. 
 
 
 4. **Calculate Output Similarity Metrics**:
-    - In the `scripts` folder, run the python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`reference.out`):
+    - In the `scripts` folder, run the Python script `output_similarity_metrics.py` to calculate the output similarity metrics between the model predictions (`output.out`) and the ground truth reference (`reference.out`):
       ```bash
       python output_similarity_metrics.py hypothesis_file
       ```
@@ -151,7 +151,7 @@ In this part, we will repeat the code generation process using the AI models, bu
     - Use the same NL descriptions stored in the `reference.in` file.
     - Modify your prompts according to prompt-engineering techniques learned during the talk.
   
-    Examples of prompts can be found in the `scripts/prompt_examples` folder.
+    Examples of prompts can be found in the `scripts/prompts` folder.
 
 2. **Generate Outputs**:
     - Generate the 10 outputs using the AI models with the engineered prompts.
